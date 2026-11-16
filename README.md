@@ -1,0 +1,2 @@
+# Tax-Engine
+Python tax intake &amp; compliance audit engine featuring: • Modular multi-tab Excel ingestion &amp; comment filtering • Deterministic Boolean logic gates for IRS credit and threshold verification (CTC, ODC, EITC, Care, Ed) • Entity compliance rule mapping (S-Corps, Partnerships, 1099s) • Action-oriented HTML review checklist generation
