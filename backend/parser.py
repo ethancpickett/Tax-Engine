@@ -2,10 +2,6 @@ import pandas as pd
 import os
 
 def parse_tax_intake(filepath):
-    """
-    Opens the master intake Excel workbook and parses Client_Intake,
-    all dynamic Dependent tabs, and Entity_Info into a structured dictionary.
-    """
     if not os.path.exists(filepath):
         raise FileNotFoundError(f"Could not find intake template at: {filepath}")
         
@@ -45,7 +41,6 @@ def parse_tax_intake(filepath):
                 clean_key = key.strip()
                 dep_dict[clean_key] = None if pd.isna(val) else val
                 
-        # Only keep the dependent tab if a name or DOB is populated
         if dep_dict.get("Dependent_Name") or dep_dict.get("DOB"):
             parsed_package["dependents"].append(dep_dict)
 
@@ -64,7 +59,6 @@ def parse_tax_intake(filepath):
                 clean_key = key.strip()
                 ent_dict[clean_key] = None if pd.isna(val) else val
                 
-        # Only keep entity info if an Entity Name is populated
         if ent_dict.get("Entity_Name"):
             parsed_package["entities"].append(ent_dict)
 
