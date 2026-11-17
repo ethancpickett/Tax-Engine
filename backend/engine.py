@@ -1,10 +1,6 @@
 # Tax-Engine/backend/engine.py
 
 def evaluate_tax_engine(parsed_data):
-    """
-    Takes the parsed dictionary from parser.py and runs deterministic
-    Boolean logic gates for individual credits and entity compliance flags.
-    """
     client = parsed_data.get("client_intake", {})
     dependents = parsed_data.get("dependents", [])
     entities = parsed_data.get("entities", [])
