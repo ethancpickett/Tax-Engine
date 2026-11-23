@@ -14,3 +14,9 @@ def run_pipeline():
     print("=" * 50)
     print("🚀 Initializing Tax-Engine Compliance Pipeline...")
     print("=" * 50)
+
+    # Verify the master intake workbook exists before running
+    if not os.path.exists(input_file):
+        print(f"\n❌ ERROR: Master intake file not found at:\n   {input_file}")
+        print("\nPlease ensure 'TAX_INTAKE_MASTER.xlsx' is placed inside your '/data' folder.")
+        sys.exit(1)
