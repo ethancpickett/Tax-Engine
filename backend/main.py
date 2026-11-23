@@ -27,3 +27,10 @@ def run_pipeline():
         parsed_data = parse_tax_intake(input_file)
         client_name = parsed_data.get("client_intake", {}).get("Client_Name", "Unknown_Client")
         print(f"      ✔ Successfully ingested intake data for: {client_name}")
+
+        # Step 2: Run Boolean Compliance & Credit Rules
+        print("\n[2/3] Evaluating IRS credit gates and entity compliance flags...")
+        evaluated_results = evaluate_tax_engine(parsed_data)
+        credits_count = len(evaluated_results.get("active_credits", []))
+        alerts_count = len(evaluated_results.get("compliance_alerts", []))
+        print(f"      ✔ Audit complete: {credits_count} active credit(s), {alerts_count} compliance alert(s).")
