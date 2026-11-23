@@ -34,3 +34,7 @@ def run_pipeline():
         credits_count = len(evaluated_results.get("active_credits", []))
         alerts_count = len(evaluated_results.get("compliance_alerts", []))
         print(f"      ✔ Audit complete: {credits_count} active credit(s), {alerts_count} compliance alert(s).")
+
+        # Step 3: Export HTML Review Checklist
+        print("\n[3/3] Compiling HTML Tax Review Chart...")
+        os.makedirs(output_dir, exist_ok=True)
