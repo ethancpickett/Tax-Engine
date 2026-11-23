@@ -38,3 +38,21 @@ def run_pipeline():
         # Step 3: Export HTML Review Checklist
         print("\n[3/3] Compiling HTML Tax Review Chart...")
         os.makedirs(output_dir, exist_ok=True)
+
+        # Format a clean filename based on the client's name
+        safe_name = "".join(c if c.isalnum() else "_" for c in client_name).strip("_")
+        output_file = os.path.join(output_dir, f"Review_Chart_{safe_name}.html")
+        
+        generate_html_report(evaluated_results, output_filepath=output_file)
+
+        print("\n" + "=" * 50)
+        print("✅ PIPELINE EXECUTION COMPLETE")
+        print(f"📄 Report saved to: {output_file}")
+        print("=" * 50)
+
+    except Exception as e:
+        print(f"\n❌ Pipeline execution failed: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    run_pipeline()
