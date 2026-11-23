@@ -1,2 +1,2 @@
-# UNFINISHED Tax-Engine | UPDATE: parser, engine + main.py backend built
+# UNFINISHED Tax-Engine | UPDATE #6: parser, engine + main.py backend redone - Master Intake Template built and uploaded
 Python tax intake &amp; compliance audit engine featuring: • Modular multi-tab Excel ingestion &amp; comment filtering • Deterministic Boolean logic gates for IRS credit and threshold verification (CTC, ODC, EITC, Care, Ed) • Entity compliance rule mapping (S-Corps, Partnerships, 1099s) • Action-oriented HTML review checklist generation
