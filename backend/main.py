@@ -20,3 +20,10 @@ def run_pipeline():
         print(f"\n❌ ERROR: Master intake file not found at:\n   {input_file}")
         print("\nPlease ensure 'TAX_INTAKE_MASTER.xlsx' is placed inside your '/data' folder.")
         sys.exit(1)
+
+    try:
+        # Step 1: Parse Excel Workbook
+        print("\n[1/3] Parsing master Excel intake workbook...")
+        parsed_data = parse_tax_intake(input_file)
+        client_name = parsed_data.get("client_intake", {}).get("Client_Name", "Unknown_Client")
+        print(f"      ✔ Successfully ingested intake data for: {client_name}")
